@@ -24,6 +24,14 @@ export function buildMockPrisma() {
       update: jest.fn(),
       delete: jest.fn(),
     },
+    product: {
+      findUnique: jest.fn(),
+      findMany: jest.fn(),
+      create: jest.fn(),
+      update: jest.fn(),
+      delete: jest.fn(),
+      count: jest.fn(),
+    },
     refreshToken: {
       create: jest.fn(),
       findUnique: jest.fn(),

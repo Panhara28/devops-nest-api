@@ -15,6 +15,7 @@ model User {
   posts               Post[]
   refreshTokens       RefreshToken[]
   passwordResetTokens PasswordResetToken[]
+  products            Product[]
   createdAt           DateTime             @default(now())
   updatedAt           DateTime             @updatedAt
 
@@ -58,6 +59,24 @@ model PasswordResetToken {
 
   @@index([userId])
   @@map("password_reset_tokens")
+}
+
+model Product {
+  id          Int      @id @default(autoincrement())
+  name        String
+  description String   @db.Text
+  price       Decimal  @db.Decimal(10, 2)
+  stock       Int      @default(0)
+  category    String
+  published   Boolean  @default(false)
+  createdBy   User     @relation(fields: [createdById], references: [id], onDelete: Restrict)
+  createdById Int
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([category])
+  @@index([createdById])
+  @@map("products")
 }
 
 enum Role {

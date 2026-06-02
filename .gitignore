@@ -1,6 +1,21 @@
+# Dependencies
 node_modules
-# Keep environment variables out of version control
-.env
 
-/generated/prisma
+# Environment variables — never commit secrets
+.env
+.env.*
+!.env.example
+
+# Build output
 dist
+/generated/prisma
+
+# Test coverage
+coverage
+
+# Claude Code — local plans and personal config
+.claude/
+CLAUDE.local.md
+
+# OS
+.DS_Store

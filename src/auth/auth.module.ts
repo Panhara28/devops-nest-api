@@ -19,7 +19,7 @@ import { LocalStrategy } from './strategies/local.strategy';
       }),
     }),
   ],
-  providers: [AuthService, JwtStrategy, LocalStrategy],
+  providers: [AuthService, JwtStrategy, LocalStrategy, ConfigService],
   controllers: [AuthController],
   exports: [AuthService],
 })
